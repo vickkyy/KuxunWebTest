@@ -19,6 +19,7 @@ parts/
 sdist/
 var/
 Test/
+H5Report/
 *.egg-info/
 .installed.cfg
 *.egg
