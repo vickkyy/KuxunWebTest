@@ -30,14 +30,14 @@ class homeTestCase(unittest.TestCase):
             return alert_text
         finally: self.accept_next_alert = True
 
-
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
 
+
+
 if __name__ == "__main__":
-    testsuite = unittest.TestSuite()
-    testsuite.addTest(homeTestCase("test_city"))
+    suite = unittest.TestLoader().loadTestsFromTestCase(homeTestCase)
 
     testResultHtml = '../H5Report/homeTestCase.html'
     fp = file(testResultHtml, 'wb')
@@ -47,5 +47,5 @@ if __name__ == "__main__":
                 title='Test Result',
                 description='Test Result.'
                 )
-    runner.run(testsuite)
+    runner.run(suite)
 
