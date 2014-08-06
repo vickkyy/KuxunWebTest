@@ -45,8 +45,8 @@ if __name__ == "__main__":
     testsuite = unittest.TestSuite()
     testsuite.addTest(qinglvCityTest("test_city"))
 
-    filename = '../H5Report/qinglvzhuantiCityTest.html'
-    fp = file(filename, 'wb')
+    testResultHtml = '../H5Report/qinglvzhuantiCityTest.html'
+    fp = file(testResultHtml, 'wb')
 
     runner = HTMLTestRunner.HTMLTestRunner(
                 stream=fp,
