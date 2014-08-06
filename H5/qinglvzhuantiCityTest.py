@@ -1,11 +1,13 @@
 #encoding: utf-8
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
-import unittest, time
-import HTMLTestRunner
+import unittest, time, re
 
-class qinglvCityTest(unittest.TestCase):
+class Untitled(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
@@ -13,11 +15,11 @@ class qinglvCityTest(unittest.TestCase):
         self.verificationErrors = [ ]
         self.accept_next_alert = True
 
-    def test_city(self):
+    def test_untitled(self):
         driver = self.driver
         driver.get(self.base_url + "hotel-qinglvzhuanti-hangzhou.html")
         time.sleep(2)
-        driver.find_element_by_link_text(u"杭州").click()
+        driver.find_element_by_link_text(u"常州").click()
         time.sleep(4)
         driver.find_element_by_link_text(u"北京").click()
 
@@ -42,14 +44,4 @@ class qinglvCityTest(unittest.TestCase):
         self.assertEqual([], self.verificationErrors)
 
 if __name__ == "__main__":
-    suite = unittest.TestLoader().loadTestsFromTestCase(qinglvCityTest)
-
-    testResultHtml = '../H5Report/qinglvzhuantiCityTest.html'
-    fp = file(testResultHtml, 'wb')
-
-    runner = HTMLTestRunner.HTMLTestRunner(
-                stream=fp,
-                title='Test Result',
-                description='Test Result.'
-                )
-    runner.run(suite)
+    unittest.main()
