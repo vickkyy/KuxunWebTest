@@ -42,8 +42,7 @@ class qinglvCityTest(unittest.TestCase):
         self.assertEqual([], self.verificationErrors)
 
 if __name__ == "__main__":
-    testsuite = unittest.TestSuite()
-    testsuite.addTest(qinglvCityTest("test_city"))
+    suite = unittest.TestLoader().loadTestsFromTestCase(qinglvCityTest)
 
     testResultHtml = '../H5Report/qinglvzhuantiCityTest.html'
     fp = file(testResultHtml, 'wb')
@@ -53,4 +52,4 @@ if __name__ == "__main__":
                 title='Test Result',
                 description='Test Result.'
                 )
-    runner.run(testsuite)
+    runner.run(suite)
